@@ -584,6 +584,8 @@ func parseOptionsImpl(
 				format = api.FormatCommonJS
 			case "esm":
 				format = api.FormatESModule
+			case "plain":
+				format = api.formatPlain
 			default:
 				return parseOptionsExtras{}, cli_helpers.MakeErrorWithNote(
 					fmt.Sprintf("Invalid value %q in %q", value, arg),

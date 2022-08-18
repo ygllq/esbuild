@@ -122,6 +122,8 @@ func validateFormat(value Format) config.Format {
 		return config.FormatCommonJS
 	case FormatESModule:
 		return config.FormatESModule
+	case FormatPlain:
+		return config.FormatPlain
 	default:
 		panic("Invalid format")
 	}
@@ -1030,6 +1032,8 @@ func rebuildImpl(
 			options.OutputFormat = config.FormatCommonJS
 		case config.PlatformNeutral:
 			options.OutputFormat = config.FormatESModule
+		case config.PlatformScript:
+			options.OutputFormat = config.FormatPlain
 		}
 	}
 

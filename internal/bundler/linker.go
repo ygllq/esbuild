@@ -4224,6 +4224,10 @@ func (c *linkerContext) generateEntryPointTailJS(
 			}}}})
 		}
 
+	case config.FormatPlain:
+		stmts = append(stmts, js_ast.Stmt{Data: &js_ast.SExpr{Value: js_ast.Expr{Data: &js_ast.ECall{
+			Target: js_ast.Expr{Data: &js_ast.EIdentifier{Ref: repr.AST.WrapperRef}},
+		}}}})
 	case config.FormatIIFE:
 		if repr.Meta.Wrap == graph.WrapCJS {
 			if len(c.options.GlobalName) > 0 {

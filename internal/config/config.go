@@ -59,6 +59,7 @@ const (
 	PlatformBrowser Platform = iota
 	PlatformNode
 	PlatformNeutral
+	PlatformScript
 )
 
 type SourceMap uint8
@@ -160,6 +161,10 @@ const (
 	//   export {...};
 	//
 	FormatESModule
+
+	// The plain format lloks liken this:
+	// ... bundled code ...
+	FormatPlain
 )
 
 func (f Format) KeepES6ImportExportSyntax() bool {
@@ -174,6 +179,8 @@ func (f Format) String() string {
 		return "cjs"
 	case FormatESModule:
 		return "esm"
+	case FormatPlain:
+		return "plain"
 	}
 	return ""
 }

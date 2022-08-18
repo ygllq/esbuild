@@ -163,6 +163,7 @@ const (
 	FormatIIFE
 	FormatCommonJS
 	FormatESModule
+	FormatPlain
 )
 
 type Engine struct {
